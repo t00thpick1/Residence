@@ -1,6 +1,7 @@
 package net.t00thpick1.residence.api.events;
 
 import net.t00thpick1.residence.api.areas.PermissionsArea;
+
 import org.bukkit.entity.Player;
 import org.bukkit.event.Event;
 import org.bukkit.event.HandlerList;
@@ -51,10 +52,13 @@ public class PlayerChangedAreaEvent extends Event {
         return player;
     }
 
-    private HandlerList handlers = new HandlerList();
+    private static final HandlerList handlerlist = new HandlerList();
 
     @Override
     public HandlerList getHandlers() {
-        return handlers ;
+        return handlerlist;
     }
-}
+
+    public static HandlerList getHandlerList() {
+        return handlerlist;
+    }}
