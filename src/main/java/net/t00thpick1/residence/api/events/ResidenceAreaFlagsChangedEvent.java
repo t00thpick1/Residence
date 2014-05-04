@@ -25,10 +25,15 @@ public class ResidenceAreaFlagsChangedEvent extends Event {
         return residence;
     }
 
+    private static final HandlerList handlerlist = new HandlerList();
+
     @Override
     public HandlerList getHandlers() {
         return handlerlist;
     }
 
-    private HandlerList handlerlist = new HandlerList();
+    public static HandlerList getHandlerList() {
+        return handlerlist;
+    }
+
 }
