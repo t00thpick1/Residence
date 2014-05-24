@@ -105,8 +105,6 @@ public class Residence extends JavaPlugin {
         }
 
         getServer().getPluginManager().registerEvents(new StateAssurance(), this);
-        getServer().getPluginManager().registerEvents(new VehicleMoveListener(), this);
-        getServer().getPluginManager().registerEvents(new MoveListener(), this);
         getServer().getPluginManager().registerEvents(new TeleportListener(), this);
         getServer().getPluginManager().registerEvents(new ExplosionListener(), this);
         getServer().getPluginManager().registerEvents(new SpawnListener(), this);
@@ -121,6 +119,10 @@ public class Residence extends JavaPlugin {
         getServer().getPluginManager().registerEvents(new PlaceListener(), this);
         getServer().getPluginManager().registerEvents(new DestroyListener(), this);
         getServer().getPluginManager().registerEvents(new EndermanPickupListener(), this);
+        if (ConfigManager.getInstance().useMoveListeners()) {
+            getServer().getPluginManager().registerEvents(new VehicleMoveListener(), this);
+            getServer().getPluginManager().registerEvents(new MoveListener(), this);
+        }
         (new BukkitRunnable() {
             public void run() {
                 Player[] p = Residence.getInstance().getServer().getOnlinePlayers();

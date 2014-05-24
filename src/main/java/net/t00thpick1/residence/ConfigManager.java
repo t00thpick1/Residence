@@ -67,4 +67,8 @@ public class ConfigManager {
     public boolean isAutoVert() {
         return config.getBoolean("General.AutoVertResidences", false);
     }
+
+    public boolean useMoveListeners() {
+        return config.getBoolean("General.MovementListeners", true);
+    }
 }
