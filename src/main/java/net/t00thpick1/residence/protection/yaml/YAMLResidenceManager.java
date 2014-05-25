@@ -4,6 +4,7 @@ import net.t00thpick1.residence.ConfigManager;
 import net.t00thpick1.residence.Residence;
 import net.t00thpick1.residence.api.areas.CuboidArea;
 import net.t00thpick1.residence.api.areas.ResidenceArea;
+import net.t00thpick1.residence.api.events.ResidenceAreaCreatedEvent;
 import net.t00thpick1.residence.api.events.ResidenceAreaDeletedEvent;
 import net.t00thpick1.residence.listeners.StateAssurance;
 import net.t00thpick1.residence.protection.MemoryCuboidArea;
@@ -106,6 +107,8 @@ public class YAMLResidenceManager extends MemoryResidenceManager {
             residencesByUUID.put(newRes.getResidenceUUID(), newRes);
             calculateChunks(newRes);
             newRes.applyDefaultFlags();
+            Residence residence = Residence.getInstance();
+            residence.getServer().getPluginManager().callEvent(new ResidenceAreaCreatedEvent(newRes));
         } catch (Exception e) {
             e.printStackTrace();
             return null;
