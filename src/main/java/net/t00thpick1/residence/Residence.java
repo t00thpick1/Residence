@@ -82,6 +82,7 @@ public class Residence extends JavaPlugin {
 
     @Override
     public void onEnable() {
+        instance = this;
         File dataFolder = getDataFolder();
         cmanager = new CompatabilityManager();
 
