@@ -17,6 +17,8 @@ General:
     IgnorePluginSpawns: true
     # This setting will preserve flags on a residence that are not registered (generally flags from third party addons)
     PreserveUnregisteredFlags: true
+    # Enables movement listeners. Disabling it reduces server load but you will not be able to block users from entering residences.
+    MovementListeners: true
 Economy:
     Enabled: true
     Rent:

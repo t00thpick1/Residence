@@ -101,7 +101,11 @@ public class FlagManager {
             return;
         }
         validFlags.put(flag.getName(), flag);
-        Residence.getInstance().getServer().getPluginManager().addPermission(flag.getPermission());
+        try {
+            Residence.getInstance().getServer().getPluginManager().addPermission(flag.getPermission());
+        } catch (IllegalArgumentException e) {
+            // The permission was already registered. Ignore the exception.
+        }
     }
 
     /**
