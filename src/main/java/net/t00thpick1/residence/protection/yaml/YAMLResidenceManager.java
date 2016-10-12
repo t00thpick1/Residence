@@ -106,6 +106,8 @@ public class YAMLResidenceManager extends MemoryResidenceManager {
             residencesByUUID.put(newRes.getResidenceUUID(), newRes);
             calculateChunks(newRes);
             newRes.applyDefaultFlags();
+            Residence residence = Residence.getInstance();
+            residence.getServer().getPluginManager().callEvent(new ResidenceAreaCreatedEvent(newRes));
         } catch (Exception e) {
             e.printStackTrace();
             return null;
